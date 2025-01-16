@@ -83,9 +83,10 @@ const authController = {
 
       await user.save();
 
-      const resetUrl = `${req.protocol}://${req.get(
-        "host"
-      )}/api/v1/reset-password/${token}`;
+      // Retrieve the origin
+      const origin =
+        req.get("origin") || `${req.protocol}://${req.get("host")}`;
+      const resetUrl = `${origin}/reset-password/${token}`;
 
       await sendEmail({
         to: email,
@@ -104,6 +105,9 @@ const authController = {
   resetPassword: async (req, res) => {
     const { token } = req.params;
     const { password } = req.body;
+
+    console.log("Received token:", token);
+    console.log("Received password:", password);
     try {
       const hashedToken = crypto
         .createHash("sha256")
