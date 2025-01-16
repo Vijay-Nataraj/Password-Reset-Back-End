@@ -1,10 +1,12 @@
 const express = require("express");
+const authRouter = require("./routes/authRoutes");
+const cookieParser = require("cookie-parser");
+
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 
-app.use((req, res) => {
-  res.json({ message: "db connection + server listening done!" });
-});
+app.use("/", authRouter);
 
 module.exports = app;

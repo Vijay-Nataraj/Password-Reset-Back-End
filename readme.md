@@ -77,6 +77,7 @@ Back End api for email password authentication.
 
   ```json
   {
+    "username": "username",
     "email": "user@example.com",
     "password": "securepassword"
   }
@@ -96,7 +97,7 @@ Back End api for email password authentication.
 
     ```json
     {
-      "error": "User already exists."
+      "message": "E11000 duplicate key error collection: Password_Reset.users index: email_1 dup key: { email: \"user@example.com\" }"
     }
     ```
 
@@ -132,7 +133,7 @@ Back End api for email password authentication.
 
     ```json
     {
-      "error": "Invalid email or password"
+      "error": "Invalid credentials"
     }
     ```
 
@@ -206,7 +207,7 @@ Back End api for email password authentication.
 
 ## Error Handling
 
-Proper error handling is implemented to ensure meaningful error messages are returned for various scenarios (e.g., invalid email or password, User not found).
+Proper error handling is implemented to ensure meaningful error messages are returned for various scenarios (e.g., invalid credentials, User not found).
 
 ## Documentation URL
 
