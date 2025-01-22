@@ -106,7 +106,7 @@ const authController = {
 
       return res
         .status(200)
-        .json({ message: "Password reset link sent successfully" });
+        .json({ token, message: "Password reset link sent successfully" });
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
