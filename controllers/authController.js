@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../utils/config");
+const { JWT_SECRET, NODE_ENV } = require("../utils/config");
 const crypto = require("crypto");
 const sendEmail = require("../utils/sendEmail");
 
@@ -44,7 +44,7 @@ const authController = {
       const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
       if (!isPasswordCorrect) {
-        res.status(400).json({ error: "Invalid credentials" });
+        return res.status(400).json({ error: "Invalid credentials" });
       }
 
       //generate token
@@ -55,7 +55,17 @@ const authController = {
       //   console.log(token);
 
       //send the token to the http only cookie
-      res.cookie("token", token, { httpOnly: true });
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: NODE_ENV,
+        sameSite: "Strict",
+      });
+
+      //send the token as a cookie
+      // res.header(
+      //   "Set-Cookie",
+      //   "token=" + token + "; HttpOnly; Secure; SameSite=None; Path=/;"
+      // );
 
       res.status(200).json({ token, message: "Login successful" });
     } catch (error) {
@@ -98,7 +108,7 @@ const authController = {
         .status(200)
         .json({ message: "Password reset link sent successfully" });
     } catch (error) {
-      res.status(400).json({ message: error.message });
+      res.status(500).json({ message: error.message });
     }
   },
 
@@ -135,7 +145,7 @@ const authController = {
 
       res.status(200).json({ message: "Password has been updated" });
     } catch (error) {
-      res.status(400).json({ message: error.message });
+      res.status(500).json({ message: error.message });
     }
   },
 };
