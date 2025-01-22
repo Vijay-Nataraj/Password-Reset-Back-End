@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "vjn-password-reset.netlify.app",
+    origin: "https://vjn-password-reset.netlify.app",
     credentials: true,
   })
 );
