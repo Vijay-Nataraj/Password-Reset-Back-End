@@ -7,9 +7,10 @@ Back End api for email password authentication.
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [API Endpoints](#api-endpoints)
+- [Error Handling](#error-handling)
+- [Documentation URL](#documentation-url)
 
 ## Technologies Used
 
