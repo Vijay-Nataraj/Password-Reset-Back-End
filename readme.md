@@ -52,6 +52,9 @@ Back End api for email password authentication.
         MONGODB_URI=your_mongodb_connection_string
         JWT_SECRET=your_jwt_secret_key
         PORT=your_port_number
+        EMAIL_USER=your_email_username
+        EMAIL_PASS=your_email_password
+        NODE_EN===your_node_en
 
    ```
 

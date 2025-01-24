@@ -5,7 +5,7 @@ const PORT = process.env.PORT;
 const JWT_SECRET = process.env.JWT_SECRET;
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
-const NODE_ENV = process.env.NODE_ENV === "production";
+const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = {
   MONGODB_URI,
