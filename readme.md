@@ -4,6 +4,8 @@
 
 Back End api for email password authentication.
 
+baseURL : https://password-reset-back-end-elif.onrender.com
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -215,4 +217,4 @@ Proper error handling is implemented to ensure meaningful error messages are ret
 
 ## Documentation URL
 
-[POSTMAN API Documentation URL: ](https://documenter.getpostman.com/view/40014100/2sAYQZJCFq)
+[POSTMAN API Documentation URL](https://documenter.getpostman.com/view/40014100/2sAYQZJCFq)
